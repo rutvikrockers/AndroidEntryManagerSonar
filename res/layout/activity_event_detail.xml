@@ -1,0 +1,166 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EventDetail" >
+
+    <ScrollView
+        android:id="@+id/scrlview"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/linlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cell_background"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin" >
+
+                <TextView
+                    android:id="@+id/event_title"
+                    style="@style/eventheading"
+                    android:text="@string/textview" />
+
+                <TextView
+                    android:id="@+id/event_timing"
+                    style="@style/eventdetail"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:text="@string/textview" />
+
+                <TextView
+                    android:id="@+id/event_vanue"
+                    style="@style/eventdetail"
+                    android:text="@string/textview" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin" >
+
+                <TextView
+                    android:id="@+id/event_tickets"
+                    android:textColor="@android:color/background_dark"
+                    style="@style/eventdetail"
+                    android:text="@string/tickets_sold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="30dp"
+                    android:background="@drawable/event_details"
+                    android:orientation="vertical"
+                    android:padding="10dp" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tickets_sold"
+                            style="@style/eventdetail"
+                            android:text="@string/_0" />
+
+                        <TextView
+                            android:id="@+id/ticketsvailable"
+                            style="@style/eventdetail"
+                            android:text="@string/__0" />
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/progressBar1"
+                        android:background="@android:color/white"
+                        android:progressDrawable="@drawable/progress_back"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:progress="20"
+                        android:max="100" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin" >
+
+                <TextView
+                    android:id="@+id/event_attendee"
+                    style="@style/eventdetail"
+                    android:textColor="@android:color/background_dark"
+                    android:text="@string/attendance" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/event_details"
+                    android:minHeight="30dp"
+                    android:orientation="vertical"
+                    android:padding="10dp" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/attendee_checkin"
+                            style="@style/eventdetail"
+                            android:text="@string/_0" />
+
+                        <TextView
+                            android:id="@+id/attendee_total"
+                            style="@style/eventdetail"
+                            android:text="@string/__0" />
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/progressBar2"
+                        android:background="@android:color/white"
+                        android:progressDrawable="@drawable/progress_back"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:progress="20"
+                        android:max="100"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/navigation_header" >
+
+        <Button
+            android:id="@+id/checkin"
+            style="@style/checkin"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:minHeight="30dp"
+            android:text="@string/check_in" >
+        </Button>
+    </LinearLayout>
+
+</RelativeLayout>

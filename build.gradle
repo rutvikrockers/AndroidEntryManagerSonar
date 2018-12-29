@@ -1,0 +1,88 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.1"
+    }
+
+}
+
+plugins {
+    id "org.sonarqube" version "2.6"
+}
+
+
+apply plugin: 'com.android.application'
+//buildscript {
+//    repositories {
+//        mavenLocal()
+//        mavenCentral()
+//        jcenter()
+//        google()
+//    }
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:2.3.2'
+//    }
+//}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+        google()
+    }
+}
+android {
+    dexOptions {
+        preDexLibraries = false
+    }
+    compileSdkVersion 21
+    buildToolsVersion '26.0.2'
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            main.jniLibs.srcDirs = ['libs']
+            test.jniLibs.srcDirs = ['libs']
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+        instrumentTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':actionbarsherlock')
+    compile project(':actionbarsherlock-i18n')
+    compile 'com.google.code.gson:gson:2.2.+'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'me.dm7.barcodescanner:zxing:1.9.8'
+}

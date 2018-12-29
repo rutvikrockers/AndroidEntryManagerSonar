@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Settings" >
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/login_title"
+        android:text="@string/logged_in_as_" />
+
+    <TextView
+        android:id="@+id/settings_email"
+        style="@style/login_email"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_toRightOf="@+id/textView2"
+        android:text="@string/test_test_com" />
+
+    <Button
+        android:id="@+id/logout"
+        style="@style/loginbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_email"
+        android:layout_marginTop="30dp"
+        android:text="@string/logout" />
+
+</RelativeLayout>
